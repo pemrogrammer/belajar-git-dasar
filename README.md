@@ -41,3 +41,53 @@ Your branch is ahead of 'origin/main' by 1 commit.
 
 nothing to commit, working tree clean
 ```
+
+## Menambah File
+Perlu diketahui pada git terdapat 3 stage:
+1. Working Directory/Local Area
+2. Staging Area/Staging Index
+3. Repository
+
+Untuk menambah kan file dari Working directory ke Staging Area menggunakan perintah `git add`, contoh kasus: 
+1. Menyiapkan file untuk uji coba.
+```sh
+$ touch file1.txt
+$ ls -l
+total 8
+-rw-rw-r-- 1 taufiq taufiq    0 Mei 20 13:03 file1.txt
+-rw-rw-r-- 1 taufiq taufiq 1083 Mei 15 10:51 LICENSE
+-rw-rw-r-- 1 taufiq taufiq 1961 Mei 15 11:57 README.md
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        file1.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+```
+2. Menambahkan file dari Working Directory ke Staging Index.
+```sh
+$ git add file1.txt 
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   file1.txt
+```
+3. Melakukan commit ke Repository flag ```-m``` digunakan untuk memberikan pesan atau informasi terhadap perubahan yg terjadi.
+```sh
+$ git commit -m "Menambahkan file1.txt ke repository"
+[main 8024d66] Menambahkan file1.txt ke repository
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 file1.txt
+ $ git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+```
